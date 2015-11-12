@@ -1,4 +1,7 @@
+import org.codehaus.jackson.map.ObjectMapper;
+
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,12 +15,12 @@ import java.util.List;
  * Created by adyachenko on 12.11.15.
  */
 
-
+@WebServlet (name = "Start Page", value = "/json")
 public class WebServer extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    List<Indexes> indexes = new LinkedList<Indexes>();
+    List<Indexes> index = new LinkedList<Indexes>();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,10 +42,10 @@ public class WebServer extends HttpServlet {
         response.setContentType("application/json");
 
         // 5. Add article to List<Article>
-        articles.add(article);
+        index.add(indexes);
 
         // 6. Send List<Article> as JSON to client
-        mapper.writeValue(response.getOutputStream(), articles);
+        mapper.writeValue(response.getOutputStream(), indexes);
     }
 }
-}
+

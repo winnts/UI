@@ -31,5 +31,7 @@
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.12" level="project" />
     <orderEntry type="library" name="Maven: org.webbitserver:webbit:0.4.14" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty:3.5.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
   </component>
 </module>
