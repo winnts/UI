@@ -24,11 +24,6 @@ public class WebServer extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin", "*");
-//        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-//        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//        response.setHeader("Access-Control-Max-Age", "86400");
-
-        // 1. get received JSON data from request
 
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String json = "";

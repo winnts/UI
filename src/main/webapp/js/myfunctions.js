@@ -1,6 +1,5 @@
 function sendAjax() {
 
-    // get inputs
     var esIndex = new Object();
     esIndex.name = $('#name').val();
     console.log(esIndex);
@@ -23,6 +22,13 @@ function sendAjax() {
 
             $.each(data, function (index, esIndex) {
                 console.log(esIndex.categories);
+
+                var td_description = $("<td/>");
+                    var span = $("<span class='label label-info' style='margin:4px;padding:4px' />");
+                    span.text(esIndex.description);
+                    td_description.append(span);
+
+
                 var td_categories = $("<td/>");
                 $.each(esIndex.categories, function (i, tag) {
 
@@ -39,7 +45,8 @@ function sendAjax() {
                 });
 
                 $("#parsed").append($('<tr/>')
-                        .append($('<td/>').html("<a href='"+esIndex.name+"'>"+esIndex.description+"</a>"))
+                        .append($('<td/>').html("<a href='"+esIndex.name+"'>"+esIndex.name+"</a>"))
+                        .append(td_description)
                         .append(td_categories)
                         .append(td_tags)
                 );

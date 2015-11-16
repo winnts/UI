@@ -45,7 +45,7 @@ public class EsIndex {
 
     @Override
     public String toString () {
-        return "Stored [name=" + name + ", description=" + description + ", categories ="
+        return "Stored [name=" + name + ", description=" + description + ", categories="
                 + categories + ", tags=" + tags + "]";
     }
 }
