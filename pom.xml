@@ -87,7 +87,6 @@
         <configuration>
           <systemProperties>
             <MAVEN_OPTS>"-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"</MAVEN_OPTS>
-            <esgui.config.path>${esgui.default.config.path}</esgui.config.path>
           </systemProperties>
         </configuration>
       </plugin>
@@ -117,6 +116,14 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>

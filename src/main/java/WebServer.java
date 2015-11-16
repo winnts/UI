@@ -15,37 +15,33 @@ import java.util.List;
  * Created by adyachenko on 12.11.15.
  */
 
-@WebServlet (name = "Start Page", value = "/json")
+@WebServlet(name = "Start Page", value = "/json")
 public class WebServer extends HttpServlet {
-
     private static final long serialVersionUID = 1L;
 
-    List<Indexes> index = new LinkedList<Indexes>();
+    List<EsIndex> esIndexes = new LinkedList<>();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+//        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+//        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//        response.setHeader("Access-Control-Max-Age", "86400");
 
         // 1. get received JSON data from request
+
         BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
         String json = "";
         if (br != null) {
             json = br.readLine();
         }
 
-        // 2. initiate jackson mapper
         ObjectMapper mapper = new ObjectMapper();
-
-        // 3. Convert received JSON to Article
-        Indexes indexes = mapper.readValue(json, Indexes.class);
-
-        // 4. Set response type to JSON
+        System.out.println(json);
+        EsIndex esIndex = mapper.readValue(json, EsIndex.class);
         response.setContentType("application/json");
-
-        // 5. Add article to List<Article>
-        index.add(indexes);
-
-        // 6. Send List<Article> as JSON to client
-        mapper.writeValue(response.getOutputStream(), indexes);
+        esIndexes.add(esIndex);
+        mapper.writeValue(response.getOutputStream(), esIndexes);
     }
 }
 
